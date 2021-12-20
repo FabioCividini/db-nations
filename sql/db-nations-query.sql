@@ -7,3 +7,20 @@ join regions r on c.region_id = r.region_id
 join continents c2 on c2.continent_id = r.continent_id
 where c.name like '%ger%'
 order by c.name;
+
+-- bonus
+select c.name from countries c where c.country_id = '156';
+
+
+-- tutte le lingue parlate in quella country
+select l.`language` from country_languages cl 
+join languages l on l.language_id = cl.language_id
+where cl.country_id = '107';
+
+
+-- le statistiche più recenti per quella country
+select `year`, population, gdp 
+from country_stats cs 
+where cs.country_id = '107'
+order by `year` desc
+limit 1;
